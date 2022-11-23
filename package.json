@@ -1,0 +1,20 @@
+{
+  "name": "curso-estructuras-de-datos",
+  "version": "1.0.0",
+  "description": "curso de estructuras de datos con js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brandon328/curso-estructuras-de-datos-js.git"
+  },
+  "keywords": [],
+  "author": "Brandon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brandon328/curso-estructuras-de-datos-js/issues"
+  },
+  "homepage": "https://github.com/Brandon328/curso-estructuras-de-datos-js#readme"
+}
