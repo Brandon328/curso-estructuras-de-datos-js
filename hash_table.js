@@ -28,12 +28,46 @@ class HashTable {
     // si no existe el key retorna undefined
     return undefined;
   }
+  delete(key) {
+    const address = this.hashMethod(key);
+    const currentBucket = this.data[address];
+    if (currentBucket) {
+      for (let i = 0; i < currentBucket.length; i++){
+        if (currentBucket[i][0] === key) {
+          const keyValue = currentBucket[i];
+          currentBucket.splice(i, 1);
+          return keyValue;
+        }
+      }
+    }
+    return undefined;
+  }
+  getAllKeys() {
+    const keys = [];
+    for (let bucket of this.data) {
+      if (bucket) {
+        for (let keyValue of bucket) {
+          keys.push(keyValue[0]);
+        }
+      }
+    }
+    return keys;
+  }
 }
 
 const myHashTable = new HashTable(50);
 console.log('=========== SET');
 console.log(myHashTable.set('brandon', 22));
+console.log(myHashTable.set('kevin', 22));
+console.log(myHashTable.set('alejandra', 22));
+console.log(myHashTable.set('jose', 22));
 console.log(myHashTable.set('danilo', 18));
 console.log('=========== GET');
 console.log(myHashTable.get('danilo'));
 console.log(myHashTable.get('andrea'));
+console.log('=========== DELETE');
+console.log(myHashTable.delete('danilo'));
+console.log('=========== GET ALL KEYS');
+console.log(myHashTable.getAllKeys());
+console.log('=========== HASH TABLE');
+console.log(myHashTable.data);
