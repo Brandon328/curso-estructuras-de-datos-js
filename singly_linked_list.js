@@ -3,14 +3,17 @@
 // Singly Linked List
 // let singlyLinkedList = {
 //   head: {
-//     value: 1,
+//     value: 0,
 //     next: {
-//       value: 2,
+//       value: 1,
 //       next: {
-//         value: 3,
+//         value: 2,
 //         next: {
-//           value: 4,
-//           next: null
+//           value: 3,
+//           next: {
+  //           value: 4,
+  //           next: null
+  //         }
 //         }
 //       }
 //     }
@@ -50,6 +53,29 @@ class MySinglyLinkedList{
     this.length++;
     return this;
   }
+  getTheIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
+  insert(index, value) {
+    if (index > this.length - 1) return this.append(value);
+    const newNode = new Node(value);
+    if (index > 0) {
+      const firstPointer = this.getTheIndex(index - 1);
+      const holdingPointer = firstPointer.next;
+      firstPointer.next = newNode;
+      newNode.next = holdingPointer;
+      this.length++;
+    }
+    else this.prepend(value);
+
+    return this;
+  }
 }
 
 let myLinkedList = new MySinglyLinkedList(1);
@@ -57,3 +83,4 @@ let myLinkedList = new MySinglyLinkedList(1);
 console.log(myLinkedList.append(5));
 console.log(myLinkedList.append(15));
 console.log(myLinkedList.prepend(21));
+console.log(myLinkedList.insert(1, 69));
